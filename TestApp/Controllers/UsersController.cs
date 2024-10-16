@@ -28,6 +28,12 @@ public class UserController : ControllerBase
             return BadRequest("User must consent to data storage.");
         }
 
+        var currentUsers = await _userService.GetUsersByEmailAndNameAsync(user.Email, user.Name);
+
+        if (currentUsers.Count() > 0)
+        {
+            return Ok(user);
+        }
 
         await _userService.CreateAsync(user);
 
