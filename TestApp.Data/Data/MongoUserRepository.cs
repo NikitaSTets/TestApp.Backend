@@ -19,9 +19,9 @@ public class MongoUserRepository : IUserRepository
         await _users.InsertOneAsync(user);
     }
 
-    public async Task<IEnumerable<User>> GetUsersAsync()
+    public async Task<IEnumerable<User>> GetConsentedUsersAsync()
     {
-        return await _users.Find(_ => true).ToListAsync();
+        return await _users.Find(user => user.ConsentToStoreData).ToListAsync();
     }
 
     public async Task<IEnumerable<User>> GetUsersByEmailAndNameAsync(string email, string name)

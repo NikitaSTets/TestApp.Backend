@@ -35,9 +35,9 @@ public class UserController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<UserDto>>> GetAllUsers()
+    public async Task<ActionResult<IEnumerable<UserDto>>> GetConsentedUsers()
     {
-        var users = await _userService.GetAllAsync();
+        var users = await _userService.GetConsentedUsersAsync();
 
         return Ok(users);
     }

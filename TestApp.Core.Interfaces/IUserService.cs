@@ -6,7 +6,7 @@ public interface IUserService
 {
     public Task<UserDto> CreateAsync(UserCreateDto user);
 
-    public Task<IEnumerable<UserDto>> GetAllAsync();
+    public Task<IEnumerable<UserDto>> GetConsentedUsersAsync();
 
     Task<IEnumerable<UserDto>> GetUsersByEmailAndNameAsync(string email, string name);
 }

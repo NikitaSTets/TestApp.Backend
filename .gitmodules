@@ -1,0 +1,3 @@
+[submodule "submodules/Backend"]
+	path = submodules/Backend
+	url = https://github.com/NikitaSTets/TestApp.Backend

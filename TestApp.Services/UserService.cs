@@ -36,9 +36,9 @@ public class UserService : IUserService
         };
     }
 
-    public async Task<IEnumerable<UserDto>> GetAllAsync()
+    public async Task<IEnumerable<UserDto>> GetConsentedUsersAsync()
     {
-        var users = await _userRepository.GetUsersAsync();
+        var users = await _userRepository.GetConsentedUsersAsync();
 
         return users.Select(user => new UserDto
         {
