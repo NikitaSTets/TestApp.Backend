@@ -62,28 +62,3 @@ public class UserService : IUserService
         });
     }
 }
-
-//public class UserService
-//{
-//    private readonly IMongoCollection<User> _users;
-
-//    public UserService(IOptions<MongoDbSettings> settings)
-//    {
-//        var client = new MongoClient(settings.Value.ConnectionString);
-//        var database = client.GetDatabase(settings.Value.DatabaseName);
-//        _users = database.GetCollection<User>(settings.Value.UsersCollectionName);
-
-//        var indexKeys = Builders<User>.IndexKeys.Ascending(u => u.Email).Descending(u => u.Name);
-//        _users.Indexes.CreateOne(new CreateIndexModel<User>(indexKeys));
-//    }
-
-//    public async Task<List<User>> GetAllAsync() =>
-//        await _users.Find(user => true).ToListAsync();
-
-//    public async Task<User> CreateAsync(User user)
-//    {
-//        await _users.InsertOneAsync(user);
-
-//        return user;
-//    }
-//}
